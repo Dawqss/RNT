@@ -10,34 +10,8 @@ body {
   background-color: $main-background-color;
 }
 
-.trigger {
-  position: relative;
-  top: 20;
-  left: 20;
-  border-radius: 15px;
-  color: black;
-  background-color: #fcffb5;
-  font-size: 15px;
-  padding: 10px 20px;
-  margin: 0 5px;
-  text-decoration: none;
-  cursor: pointer;
-  border: 1px solid rgba(0,0,0,0.3);
-  &:hover {
-    transform: scale(1.2)
-  }
-}
-
 .container {
   padding-top: 20px;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.buttonArea {
-  padding-top: 20px;
-  max-width: 1200px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);

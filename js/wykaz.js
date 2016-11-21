@@ -1,14 +1,14 @@
 var wykazurzadzenimiernikow = "https://molosapi.azurewebsites.net/api/v1/devices";
 
-function getQuote() {
+function getData() {
   $.getJSON(wykazurzadzenimiernikow, pokazMierniki);
 }
 
 function pokazMierniki(data) {
   var dataAddress = data.Data;
   return dataAddress.map(function (item) {
-  var device = item.DeviceProperties;
-  addBox(device)
+    var device = item.DeviceProperties;
+    addBox(device)
   });
 }
 
@@ -28,7 +28,7 @@ function addBox(miernik) {
   var text5 = document.createTextNode('Platform: ' + miernik.Platform)
   var text6 = document.createTextNode('Processor: ' + miernik.Processor)
   var text7 = document.createTextNode('InstalledRAM: ' + miernik.InstalledRAM)
-  
+
   paragraph2.appendChild(text2);
   paragraph3.appendChild(text3);
   paragraph4.appendChild(text4);
@@ -45,5 +45,5 @@ function addBox(miernik) {
 }
 
 $(document).ready(function () {
-  getQuote();
+  getData();
 });

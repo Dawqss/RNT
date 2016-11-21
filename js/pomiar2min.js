@@ -1,7 +1,7 @@
 
 var pomiarostatnie2min = "https://molosapi.azurewebsites.net/api/v1/telemetry/FENEK01/2m";
 
-function getQuote() {
+function getData() {
   $.getJSON(pomiarostatnie2min, pokazPomiary);
 }
 
@@ -38,8 +38,8 @@ function addBox(time, data1, data2, data3, data4) {
   var text2 = document.createTextNode(data1.Description + ': ' + data1.Value + data1.Unit);
   var text3 = document.createTextNode(data2.Description + ': ' + data2.Value + data2.Unit);
   var text4 = document.createTextNode(data3.Description + ': ' + data3.Value + data3.Unit);
-  var text = document.createTextNode(data4.Description + ': ' +  data4.Value + data4.Unit);
-  
+  var text = document.createTextNode(data4.Description + ': ' + data4.Value + data4.Unit);
+
   paragraph1.appendChild(text1);
   paragraph2.appendChild(text2);
   paragraph3.appendChild(text3);
@@ -54,5 +54,5 @@ function addBox(time, data1, data2, data3, data4) {
 }
 
 $(document).ready(function () {
-      getQuote();
-    });
+  getData();
+});

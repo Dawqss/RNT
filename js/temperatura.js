@@ -1,7 +1,7 @@
 
 var pomiarTemperaturyost2h = "https://molosapi.azurewebsites.net/api/v1/telemetry/charts?deviceId=FENEK01&telemetryName=temp&lastHour=1";
 
-function getQuote() {
+function getData() {
 	$.getJSON(pomiarTemperaturyost2h, pokazMierniki);
 }
 
@@ -39,5 +39,5 @@ function pokazMierniki(data) {
 }
 
 $(document).ready(function () {
-	getQuote();
+	getData();
 });
