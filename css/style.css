@@ -1,10 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
 body {
-  background-color: #e5e3e3; }
+  background-color: #e5e3e3;
+  font-family: "Open Sans", sans-serif; }
 
 .container {
   padding-top: 20px;
@@ -29,6 +31,7 @@ ul {
 li {
   display: inline-block;
   background-color: #f7f7f7;
+  font-family: "Libre Baskerville", serif;
   margin: 5px 20px;
   padding: 0 10px;
   line-height: 30px;
@@ -66,13 +69,14 @@ a {
     margin-bottom: 10px; }
   .box p:first-child {
     font-weight: bold;
-    font-size: 17px; }
+    font-size: 16px; }
 
 h1 {
   width: 100%;
   font-size: 40px;
   margin: 50px 5px;
-  text-align: center; }
+  text-align: center;
+  font-family: "Libre Baskerville", serif; }
 
 .chart {
   max-width: 1000px;
