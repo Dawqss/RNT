@@ -1,11 +1,10 @@
-
-var pomiarTemperaturyost2h = "https://molosapi.azurewebsites.net/api/v1/telemetry/charts?deviceId=FENEK01&telemetryName=temp&lastHour=1";
+var measurementLast2hTemp = "https://molosapi.azurewebsites.net/api/v1/telemetry/charts?deviceId=FENEK01&telemetryName=temp&lastHour=1";
 
 function getData() {
-	$.getJSON(pomiarTemperaturyost2h, pokazMierniki);
+	$.getJSON(measurementLast2hTemp, showDevices);
 }
 
-function pokazMierniki(data) {
+function showDevices(data) {
 	var tempTime = [];
 	var tempValue = [];
 	var dataAddress = data.Data.Items;

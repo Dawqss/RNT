@@ -1,10 +1,10 @@
-var wykazurzadzenimiernikow = "https://molosapi.azurewebsites.net/api/v1/devices";
+var eequipmentList = "https://molosapi.azurewebsites.net/api/v1/devices";
 
 function getData() {
-  $.getJSON(wykazurzadzenimiernikow, pokazMierniki);
+  $.getJSON(eequipmentList, showEequipment);
 }
 
-function pokazMierniki(data) {
+function showEequipment(data) {
   var dataAddress = data.Data;
   return dataAddress.map(function (item) {
     var device = item.DeviceProperties;
@@ -12,7 +12,7 @@ function pokazMierniki(data) {
   });
 }
 
-function addBox(miernik) {
+function addBox(equipment) {
   var mainSection = document.getElementById('mainSection');
   var box = document.createElement('div');
   box.classList.add('box-models')
@@ -22,12 +22,12 @@ function addBox(miernik) {
   var paragraph5 = document.createElement('p');
   var paragraph6 = document.createElement('p');
   var paragraph7 = document.createElement('p');
-  var text2 = document.createTextNode('DeviceID: ' + miernik.DeviceID)
-  var text3 = document.createTextNode('DeviceName: ' + miernik.DeviceName)
-  var text4 = document.createTextNode('ModelNumber: ' + miernik.ModelNumber)
-  var text5 = document.createTextNode('Platform: ' + miernik.Platform)
-  var text6 = document.createTextNode('Processor: ' + miernik.Processor)
-  var text7 = document.createTextNode('InstalledRAM: ' + miernik.InstalledRAM)
+  var text2 = document.createTextNode('DeviceID: ' + equipment.DeviceID)
+  var text3 = document.createTextNode('DeviceName: ' + equipment.DeviceName)
+  var text4 = document.createTextNode('ModelNumber: ' + equipment.ModelNumber)
+  var text5 = document.createTextNode('Platform: ' + equipment.Platform)
+  var text6 = document.createTextNode('Processor: ' + equipment.Processor)
+  var text7 = document.createTextNode('InstalledRAM: ' + equipment.InstalledRAM)
 
   paragraph2.appendChild(text2);
   paragraph3.appendChild(text3);
