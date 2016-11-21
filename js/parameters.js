@@ -3,7 +3,7 @@ var devicesList = "https://molosapi.azurewebsites.net/api/v1/telemetry/FENEK01/l
 function getData() {
   $.getJSON(devicesList, showDevices);
 }
-
+/*
 function showDevices(data) {
   var dataAddress = data.Data.DeviceTelemetryModels[0].Telemetries;
   var cpuTemp = dataAddress.cputemp;
@@ -16,6 +16,17 @@ function showDevices(data) {
   addBox(temp);
   addBox(tempDHT);
   addBox(wilgotDHT);
+}
+*/
+function showDevices(data) {
+  var dataAddress = data.Data.DeviceTelemetryModels[0].Telemetries;
+  console.log(dataAddress);
+  var deviceParameters = ['cpuTemp', 'odleglosc', 'temp', 'tempDHT', 'wilgotDHT'];
+  console.log(deviceParameters);
+  deviceParameters.forEach(function(item) {
+      console.log(dataAddress[item]);
+      addBox(dataAddress[item]);
+  })
 }
 
 function addBox(device) {
