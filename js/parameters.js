@@ -10,17 +10,17 @@ function showDevices(data) {
     deviceParameters.forEach(function(item) {
         addBox(dataAddress[item]);
     })
-    if (dataAddress.cputemp.Value > 36) {
+    if (dataAddress.cputemp.Value > 37) {
         $('.box:nth-child(1)').css("background-color", "orange");}
-    if (dataAddress.cputemp.Value > 40) {
+    if (dataAddress.cputemp.Value > 41) {
         $('.box:nth-child(1)').css("background-color", "red");}
     if (dataAddress.temp.Value > 25) {
         $('.box:nth-child(3)').css("background-color", "orange");}
     if (dataAddress.temp.Value > 30) {
         $('.box:nth-child(3)').css("background-color", "red");}
-    if (dataAddress.wilgotDHT.Value > 35) {
+    if (dataAddress.wilgotDHT.Value > 36) {
         $('.box:nth-child(5)').css("background-color", "orange");}
-    if (dataAddress.wilgotDHT.Value > 40) {
+    if (dataAddress.wilgotDHT.Value > 41) {
         $('.box:nth-child(5)').css("background-color", "red");}
 }
 
