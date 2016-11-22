@@ -1,9 +1,9 @@
 var devicesList = "https://molosapi.azurewebsites.net/api/v1/telemetry/FENEK01/last";
-
+ 
 function getData() {
   $.getJSON(devicesList, showDevices);
 }
-
+ 
 function showDevices(data) {
   var dataAddress = data.Data.DeviceTelemetryModels[0].Telemetries;
   var deviceParameters = ['cputemp', 'odleglosc', 'temp', 'tempDHT', 'wilgotDHT'];
@@ -11,25 +11,19 @@ function showDevices(data) {
       addBox(dataAddress[item]);
   })
 }
-
+ 
 function addBox(device) {
-  var mainSection = document.getElementById('mainSection');
-  var box = document.createElement('div');
-  box.classList.add('box')
-  var paragraph1 = document.createElement('p');
-  paragraph1.classList.add('text1')
-  var paragraph2 = document.createElement('p');
-  paragraph2.classList.add('text2')
-  var text1 = document.createTextNode(device.Description + ':')
-  var text2 = document.createTextNode(device.Value + device.Unit)
-
-  paragraph1.appendChild(text1);
-  paragraph2.appendChild(text2);
-  box.appendChild(paragraph1);
-  box.appendChild(paragraph2);
-  mainSection.appendChild(box);
+  var model = $('<div class="box"></div>');
+  model.appendTo('#mainSection');
+ 
+  var paragraph1 = $('<p class="text1">' + device.Description + ':' + '</p>');
+  var paragraph2 = $('<p class="text2">' + device.Value + device.Unit + '</p>');
+ 
+  model.appendTo('#mainSection');
+  paragraph1.appendTo(model);
+  paragraph2.appendTo(model);
 }
-
+ 
 $(document).ready(function () {
   getData();
 });

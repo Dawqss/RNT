@@ -1,57 +1,33 @@
 var measurementLast2Min = "https://molosapi.azurewebsites.net/api/v1/telemetry/FENEK01/2m";
-
+ 
 function getData() {
   $.getJSON(measurementLast2Min, showMeasurement);
 }
-
+ 
 function showMeasurement(data) {
   var dataAddress = data.Data.DeviceTelemetryModels;
-
+ 
   dataAddress.map(function (item) {
-    var measurementData = item.Timestamp;
-    var cputemp = item.Telemetries.cputemp;
-    var odleglosc = item.Telemetries.odleglosc;
-    var temp = item.Telemetries.temp;
-    var wilgotDHT = item.Telemetries.wilgotDHT;
-
-    addBox(measurementData, cputemp, odleglosc, temp, wilgotDHT);
+    addBox(item.Timestamp, item.Telemetries.cputemp, item.Telemetries.odleglosc, item.Telemetries.temp, item.Telemetries.wilgotDHT);
   });
 }
-
+ 
 function addBox(time, data1, data2, data3, data4) {
-  var mainSection = document.getElementById('mainSection');
-  var box = document.createElement('div');
-  box.classList.add('box-other');
-  var paragraph1 = document.createElement('p');
-  paragraph1.classList.add('textHead');
-  var paragraph2 = document.createElement('p');
-  paragraph2.classList.add('text');
-  var paragraph3 = document.createElement('p');
-  paragraph3.classList.add('text');
-  var paragraph4 = document.createElement('p');
-  paragraph4.classList.add('text');
-  var paragraph5 = document.createElement('p');
-  paragraph5.classList.add('text');
-
-  var text1 = document.createTextNode(time.substr(0, 10) + " " + time.substr(11, 8));
-  var text2 = document.createTextNode(data1.Description + ': ' + data1.Value + data1.Unit);
-  var text3 = document.createTextNode(data2.Description + ': ' + data2.Value + data2.Unit);
-  var text4 = document.createTextNode(data3.Description + ': ' + data3.Value + data3.Unit);
-  var text5 = document.createTextNode(data4.Description + ': ' + data4.Value + data4.Unit);
-
-  paragraph1.appendChild(text1);
-  paragraph2.appendChild(text2);
-  paragraph3.appendChild(text3);
-  paragraph4.appendChild(text4);
-  paragraph5.appendChild(text5);
-  box.appendChild(paragraph1);
-  box.appendChild(paragraph2);
-  box.appendChild(paragraph3);
-  box.appendChild(paragraph4);
-  box.appendChild(paragraph5);
-  mainSection.appendChild(box);
+  var model = $('<div class="box-other"></div>');
+  var paragraph1 = $('<p class="textHead">' + time.substr(0, 10) + " " + time.substr(11, 8) + '</p>');
+  var paragraph2 = $('<p class="textHead">' + data1.Description + ': ' + data1.Value + data1.Unit + '</p>');
+  var paragraph3 = $('<p class="textHead">' + data2.Description + ': ' + data2.Value + data2.Unit + '</p>');
+  var paragraph4 = $('<p class="textHead">' + data3.Description + ': ' + data3.Value + data3.Unit + '</p>');
+  var paragraph5 = $('<p class="textHead">' + data4.Description + ': ' + data4.Value + data4.Unit + '</p>');
+ 
+  model.appendTo('#mainSection');
+  paragraph1.appendTo(model);
+  paragraph2.appendTo(model);
+  paragraph3.appendTo(model);
+  paragraph4.appendTo(model);
+  paragraph5.appendTo(model);
 }
-
+ 
 $(document).ready(function () {
   getData();
 });
