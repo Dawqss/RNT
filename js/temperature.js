@@ -22,8 +22,7 @@ function showDevices(data) {
 	}, {
 			chartPadding: 30,
 			showArea: true,
-			low: 0,
-			high: 35,
+			type: Chartist.FixedScaleAxis,
 			axisX: {
 				labelInterpolationFnc: function skipLabels(value, index) {
 					return index % 25 === 0 ? value : null;
