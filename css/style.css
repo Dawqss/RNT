@@ -32,8 +32,8 @@ li {
   display: inline-block;
   background-color: #f7f7f7;
   font-family: "Libre Baskerville", serif;
-  margin: 5px 20px;
-  padding: 0 10px;
+  margin: 5px 25px;
+  padding: 0 25px;
   line-height: 30px;
   font-size: 15px;
   border: 1px solid rgba(0, 0, 0, 0.3); }
@@ -120,7 +120,7 @@ h1 {
   background-color: #f7f7f7;
   margin: 15px;
   padding: 15px;
-  width: 280px;
+  min-width: 280px;
   min-height: 150px;
   border: 2px solid rgba(0, 0, 0, 0.5); }
   .box-models p {
