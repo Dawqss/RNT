@@ -15,12 +15,23 @@ function showEequipment(data) {
 function addBox(equipment) {
 
   var model = $('<div class="box-models"></div>');
-  model.appendTo('#mainSection');
+  model.appendTo('.mainSection');
   for (var variable in equipment) {
     model.append('<p>' + variable + ': ' + equipment[variable] + '<p>');
   }
 }
 
 $(document).ready(function () {
-  getData();
+	getData();
+
+	$('#sortable').sortable({
+		change: function (event, ui) {
+			ui.placeholder.css({ visibility: 'visible', boxShadow: 'none', border: '1px dotted grey', background: 'rgba(255, 255, 255, 0.5)' });
+		},
+		tolerance: 'touch',
+		drop: function () {
+			alert('delete!');
+		}
+	});
+	$('#item').sortable();
 });
