@@ -7,21 +7,17 @@ function getData() {
 function showDevices(data) {
     var dataAddress = data.Data.DeviceTelemetryModels[0].Telemetries;
     var deviceParameters = ['cputemp', 'odleglosc', 'temp', 'tempDHT', 'wilgotDHT'];
-    deviceParameters.forEach(function(item) {
+    deviceParameters.forEach(function (item) {
         addBox(dataAddress[item]);
     })
-    if (dataAddress.cputemp.Value > 37) {
-        $('.box:nth-child(1)').css("background-color", "orange");}
-    if (dataAddress.cputemp.Value > 41) {
-        $('.box:nth-child(1)').css("background-color", "red");}
-    if (dataAddress.temp.Value > 25) {
-        $('.box:nth-child(3)').css("background-color", "orange");}
-    if (dataAddress.temp.Value > 30) {
-        $('.box:nth-child(3)').css("background-color", "red");}
-    if (dataAddress.wilgotDHT.Value > 36) {
-        $('.box:nth-child(5)').css("background-color", "orange");}
-    if (dataAddress.wilgotDHT.Value > 41) {
-        $('.box:nth-child(5)').css("background-color", "red");}
+    alerts(dataAddress.cputemp, 37, 41, 1);
+    alerts(dataAddress.temp, 25, 30, 3);
+    alerts(dataAddress.wilgotDHT, 36, 41, 5);
+
+    function alerts(data, midValue, maxValue, index) {
+        if (data.Value > midValue) { $('.box:nth-child(' + index + ')').css("background-color", "orange"); }
+        if (data.Value > maxValue) { $('.box:nth-child(' + index + ')').css("background-color", "red"); }
+    }
 }
 
 function addBox(device) {
@@ -36,15 +32,15 @@ function addBox(device) {
     paragraph2.appendTo(model);
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     getData();
 
     $('#sortable').sortable({
-        change: function(event, ui) {
+        change: function (event, ui) {
             ui.placeholder.css({ visibility: 'visible', boxShadow: 'none', border: '1px dotted grey', background: 'rgba(255, 255, 255, 0.5)' });
         },
         tolerance: 'touch',
-        drop: function() {
+        drop: function () {
             alert('delete!');
         }
     });
