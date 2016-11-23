@@ -6,7 +6,7 @@ function getData() {
 
 function showEequipment(data) {
 	var dataAddress = data.Data;
-	dataAddress.map(function (item) {
+	dataAddress.forEach(function (item) {
 		var device = item.DeviceProperties;
 		addBox(device)
 	});

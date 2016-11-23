@@ -9,7 +9,7 @@ function showDevices(data) {
 	var tempValue = [];
 	var dataAddress = data.Data.Items;
 
-	dataAddress.map(function (item) {
+	dataAddress.forEach(function (item) {
 		tempTime.push((item.x).substr(11, 5));
 		tempValue.push(item.y);
 	});
